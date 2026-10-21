@@ -1,1 +1,50 @@
-
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VMISS Metadata Mount 的个人用途、Google Drive 元数据权限与数据处理说明。">
+  <title>隐私政策 · VMISS Metadata Mount</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><div class="wrap">
+    <p class="brand">VMISS Metadata Mount</p>
+    <nav aria-label="主要导航"><a href="index.html">应用说明</a><a href="privacy.html" aria-current="page">隐私政策</a><a href="terms.html">使用条款</a></nav>
+  </div></header>
+  <main id="main" class="wrap">
+    <h1>隐私政策</h1>
+    <p class="subtitle">Privacy Policy · 文档日期：2026-10-21</p>
+    <div class="notice"><p>本政策适用于仅供本人使用的 VMISS Metadata Mount 及本静态说明网站。</p></div>
+    <h2>1. 应用用途与权限</h2>
+    <p>本应用通过 rclone 在本人管理的 Ubuntu VPS 上提供 Google Drive 只读目录视图。唯一请求的 Google OAuth scope 为：</p>
+    <div class="scope"><code>https://www.googleapis.com/auth/drive.metadata.readonly</code></div>
+    <p>本应用可请求文件与文件夹的名称、目录层级、大小、修改时间等元数据，以 Google API 实际返回为准。此权限不授予读取文件内容、编辑或删除文件的能力。本应用不自动下载、同步或预读文件内容。</p>
+    <h2>2. OAuth 令牌与目录元数据</h2>
+    <ul>
+      <li>本人使用自有的 Google 桌面 OAuth 客户端，在本人 Mac 上发起授权；Google 处理登录、同意授权及 API 认证。本站不接收 Google 密码或 OAuth 授权信息。</li>
+      <li>授权令牌，包括用于续期的令牌，保存在本人 Mac 和本人 VPS 的权限受限文件中，仅用于本应用的授权访问及续期。</li>
+      <li>rclone 在挂载运行时向 Google API 请求元数据，并可能在内存中短期缓存目录元数据，以呈现目录视图。</li>
+      <li>本站不存储或公开令牌、目录元数据或云端文件；本应用不提供公开存储和分享服务。</li>
+    </ul>
+    <h2>3. 第三方服务与网站访问</h2>
+    <p>Google 自行处理 OAuth 与 Drive API 请求，相关处理同时受 Google 自身的隐私政策约束。本应用未接入第三方分析、广告或跟踪工具，也不出售个人数据。</p>
+    <p>本说明网站由 GitHub Pages 静态托管。访问页面时，GitHub 会按照其平台政策处理基础访问日志及相关技术信息。这些托管平台处理与本应用在本人设备上保存的令牌、目录元数据相互独立；本站不嵌入分析脚本或外部跟踪资源。</p>
+    <p>本应用对 Google API 所获取信息的使用遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>，包括其中的 Limited Use 要求。Google 与 GitHub 的平台处理分别见 <a href="https://policies.google.com/privacy">Google 隐私政策</a>及 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub 隐私声明</a>。</p>
+    <h2>4. 保存与安全</h2>
+    <p>令牌在本人设备的权限受限文件中保存，直至本人删除。内存中的目录缓存仅用于运行期间的短期访问，结束挂载进程可释放该进程的缓存。静态托管访问日志的保存由 GitHub 自行管理。</p>
+    <p>权限限制与只读配置用于减少暴露风险，但不构成绝对安全保证。本人负责维护 Mac、VPS 及凭据文件的访问权限。</p>
+    <h2>5. 撤销授权与删除本地凭据</h2>
+    <ol>
+      <li>进入 Google 账号的“第三方连接”管理页面，找到本应用并撤销其访问权限；具体页面名称以 Google 当前界面为准。</li>
+      <li>停止 VPS 上的相关 rclone 挂载服务。</li>
+      <li>如需清理，由本人删除 Mac 和 VPS 中保存的本应用令牌及相关私密配置。删除本地凭据与在 Google 端撤销授权应分别完成。</li>
+    </ol>
+    <p>以上操作不删除 Google Drive 中的文件。本应用仅供本人使用，当前未提供公开联系邮箱或公众支持渠道。</p>
+    <div class="links"><a href="index.html">返回应用说明</a><a href="terms.html">阅读使用条款</a></div>
+  </main>
+  <footer><div class="wrap">
+    <p>文档日期：<time datetime="2026-10-21">2026-10-21</time> · 仅供本人使用</p>
+  </div></footer>
+</body>
+</html>
