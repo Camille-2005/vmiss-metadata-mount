@@ -1,1 +1,36 @@
-
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VMISS Metadata Mount 的个人用途、Google Drive 元数据权限与数据处理说明。">
+  <title>应用说明 · VMISS Metadata Mount</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><div class="wrap">
+    <p class="brand">VMISS Metadata Mount</p>
+    <nav aria-label="主要导航"><a href="index.html" aria-current="page">应用说明</a><a href="privacy.html">隐私政策</a><a href="terms.html">使用条款</a></nav>
+  </div></header>
+  <main id="main" class="wrap">
+    <h1>只查看目录元数据</h1>
+    <p class="subtitle">Application overview · 个人 Google Drive 只读目录挂载说明</p>
+    <p>VMISS Metadata Mount 是本人使用的配置方案：通过 rclone，在本人管理的 Ubuntu VMISS 服务器上长期挂载 Google Drive 的目录视图，查看文件与文件夹的元数据，例如名称、目录层级、大小和修改时间，以 Google API 实际返回为准。</p>
+    <div class="notice"><p>本应用不自动下载、同步或预读云端文件内容，也不提供文件内容读取、编辑、删除、公开存储或公开分享功能。</p></div>
+    <h2>桌面 OAuth 授权</h2>
+    <p>应用使用本人自有 Google OAuth 客户端，客户端类型为桌面应用（Desktop app）。授权流程由本人在自己的 Mac 上通过 rclone 发起，并在 Google 提供的页面完成。本站仅提供说明，不提供授权登录入口，也不收集 Google 密码、授权码或令牌。</p>
+    <h2>唯一请求的权限</h2>
+    <div class="scope">
+      <p><code>https://www.googleapis.com/auth/drive.metadata.readonly</code></p>
+      <p>此权限用于读取 Google Drive 元数据，不授予读取文件内容、编辑或删除文件的权限。挂载展示的文件不支持打开内容。</p>
+    </div>
+    <h2>数据保存在本人设备中</h2>
+    <p>OAuth 令牌保存在本人 Mac 和本人 VPS 的权限受限文件中，用于授权访问与续期。rclone 会请求目录元数据，并可能在内存中短期缓存。本站不存储令牌或目录元数据。</p>
+    <p>本应用仅供本人使用，不向公众提供账户或云盘服务。数据处理、静态站点托管及撤销授权的方法见隐私政策。</p>
+    <div class="links"><a href="privacy.html">阅读隐私政策 / Privacy Policy</a><a href="terms.html">阅读使用条款 / Terms of Use</a></div>
+  </main>
+  <footer><div class="wrap">
+    <p>文档日期：<time datetime="2026-10-21">2026-10-21</time> · 仅供本人使用</p>
+  </div></footer>
+</body>
+</html>
